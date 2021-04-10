@@ -1,8 +1,10 @@
-# Présentation du projet
+# À la découverte des jardins remarquables français
 
-Cette application Flask a été développée par Léa Perissier dans le cadre de l'évaluation du cours python de M. Clérice à l'École nationale des chartes. Elle permet l'exposition et la représentation géographique des jardins remarquables français d'après un jeu de données disponible sur data.gouv.
+## Présentation du projet
 
-# Description de l'application
+Cette application Flask a été développée par Léa Perissier dans le cadre de l'évaluation du cours python de M. Clérice à l'École nationale des chartes. Elle permet l'exposition et la représentation géographique des jardins remarquables français d'après un jeu de données disponible sur [data.gouv](https://www.data.gouv.fr/fr/datasets/liste-des-jardins-remarquables/).
+
+## Description de l'application
 
 Le visiteur pourra parcourir la base de données à l'aide de plusieurs outils :
 - des notices descriptives pour chaque jarin comportant une représentation géographique grâce à la librairie JavaScript Leaflet
@@ -12,7 +14,7 @@ Le visiteur pourra parcourir la base de données à l'aide de plusieurs outils :
 
 En s'inscrivant et en se connectant, le visiteur pourra bénéficier de fonctionnalités supplémentaires à savoir, l'ajout, la modification et la suppression d'une jardin remarquable dans la base de données.
 
-# Installation et lancement de l'application
+## Installation et lancement de l'application
 
 Veuillez suivre les étapes suivantes à exécuter dans un terminal (Linux) :
 
