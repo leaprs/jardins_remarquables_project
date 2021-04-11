@@ -23,10 +23,11 @@ Veuillez suivre les étapes suivantes à exécuter dans un terminal (Linux) :
 
 1. Vérifier que la version de python installée est bien python3 : ``` python --version ```
 2. Clôner le dépôt git sur sa machine : ``` git clone https://github.com/leaprs/jardins_remarquables_project.git ``` 
-3. Créer un environnement virtuel ``` env ``` : ``` virtualenv -p python3 env ```
-4. Sourcer l'environnement virtuel créé : ``` source env/bin/activate ```
-5. Se déplacer dans l'environnement virtuel : ``` cd env ```
+3. Se déplacer dans le dossier créé : ``` cd jardins_remarquables_project/ ```
+4. Créer un environnement virtuel ``` env ``` : ``` virtualenv -p python3 env ```
+5. Sourcer l'environnement virtuel créé : ``` source env/bin/activate ```
 6. Installer les librairies nécessaires au fonctionnement de l'application : ``` pip install -r requirements.txt ```
 7. Lancer l'application : ``` python3 run.py ```
+8. Ouvrir l'application dans votre navigateur en cliquant sur http://127.0.0.1:5000/
 
-Seules les étapes 4, 5 et 7 seront à refaire une fois passée la première installation.
+Seules les étapes 3, 4, 7 et 8 seront à refaire une fois passée la première installation.
