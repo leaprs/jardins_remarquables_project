@@ -2,15 +2,18 @@
 
 ## Présentation du projet
 
-Cette application Flask a été développée par Léa Perissier dans le cadre de l'évaluation du module python de M. Clérice à l'École nationale des chartes. Elle permet l'exposition et la représentation géographique des jardins remarquables français d'après un jeu de données disponible sur [data.gouv](https://www.data.gouv.fr/fr/datasets/liste-des-jardins-remarquables/). Afin de rendre les données davantage lisible, de légères modifications ont eu lieu à partir du set de données intial. Ces changements sont mesurables via le dossier "documentation" au sein duquel se trouvent les jeux de données à la base de l'application.
+Cette application a été développée par Léa Perissier dans le cadre de l'évaluation du module Python de l'École nationale des chartes. Elle permet l'exposition et la géolocalisation des jardins remarquables français d'après un jeu de données disponible sur [data.gouv](https://www.data.gouv.fr/fr/datasets/liste-des-jardins-remarquables/). 
+Afin de rendre les données davantage lisibles, de légères modifications ont été apportées à partir du set de données intial. Ces changements sont mesurables via le dossier "documentation" au sein duquel se trouvent les jeux de données à la base de l'application.
 
-## Description de l'application
+Crédits : L'application a été développée à l'aide du framework Flask ainsi que la librairie JavaScript Leaflet pour les visualisations. Quant au design de l'application, le framework Bootstrap a été utilisé.
+
+## Description des fonctionnalités de l'application
 
 Le visiteur pourra parcourir la base de données à l'aide de plusieurs outils :
-- des notices descriptives pour chaque jarin comportant une représentation géographique grâce à la librairie JavaScript Leaflet
-- un index alphabétique des jardins remarquables
-- une barre de recherche
-- une carte intéractive mondiale où chaque pointeur renvoie à la notice du jardin concerné
+- des notices descriptives pour chaque jardin comportant sa géolocalisation
+- un index alphabétique des noms des jardins remarquables
+- une barre de recherche pour faire des requêtes à travers les noms des jardins de la base de données
+- une carte intéractive d'ensemble où chaque pointeur renvoie à la notice du jardin concerné
 
 En s'inscrivant et en se connectant, le visiteur pourra bénéficier de fonctionnalités supplémentaires à savoir : l'ajout, la modification et la suppression d'un jardin remarquable dans la base de données.
 
