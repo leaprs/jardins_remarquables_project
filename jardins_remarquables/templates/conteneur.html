@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jardins remarquables{% block titre %}{% endblock %}</title>
+    {% include "partials/css.html" %}
+    {% include "partials/metadata.html" %}
+    <style type="text/css">
+        .hero  {
+            background-position: center center;
+            padding:10vh;
+            background-image: url({{ url_for("static", filename="images/pavillon_de_galon.jpg") }});
+        }
+        .container .hero {
+            background-image: none;
+        }
+    </style>
+    {% block head %}{%endblock%}
+</head>
+
+<body>
+
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand" href="{{ url_for('accueil')}}">Jardins remarquables français</a>
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('index')}}">Index alphabétique des jardins remarquables</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('carte')}}">Répartition mondiale</a>
+            </li>
+
+            {% if not current_user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('inscription')}}">Inscription</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('connexion')}}">Connexion</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('ajouter_jardin')}}">Ajouter un jardin remarquable</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('deconnexion')}}">Déconnexion ({{current_user.utilisateur_nom}})</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('description_projet')}}">À propos</a>
+            </li>
+        </ul>
+        <form class="form-inline" action="{{url_for('recherche')}}" method="GET">
+          <input class="form-control" name="keyword" type="search" placeholder="Recherche" aria-label="Recherche">
+          <button class="btn btn-info" type="submit">Rechercher</button>
+        </form>
+      </nav>
+      {% block afternav %}{%endblock%}
+      <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+          <div class="row">
+              <div class="col">
+                {% for category, message in messages %}
+                  <div class="alert alert-{{category}}" role="alert">{{ message }}</div>
+                {% endfor %}
+              </div>
+          </div>
+          {% endif %}
+        {% endwith %}
+        <div class="row">
+            <div class="col">
+            {% block corps %}{% endblock %}
+            </div>
+        </div>
+      </div>
+    </body>
+</html>
