@@ -1,0 +1,20 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}
+    Supprimer un jardin remarquable inscrit dans la base de données
+{% endblock %}
+
+{% block corps %}
+    <h1>Formulaire de suppression d'un jardin remarquable</h1>
+
+    <form method="POST" action="{{url_for('supprimer_jardin', id=jardin_supprime.id)}}">
+        <div>
+            <p>Voulez-vous supprimer ce jardin remarquable : </p>
+            <p value="{{jardin_supprime.id}}">{{jardin_supprime.nom}} ?</p>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-info">Confirmer la suppression</button>
+        </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}| {{titre}}{%endblock%}
+
+{% block corps %}
+
+    {% include "partials/recherche.html" %}
+
+    <h1>{{titre}}</h1>
+        {% if resultats %}
+        <p>Il y a {{resultats|length}} jardins remarquables qui répondent à votre requête :</p>
+            <ul>
+                {% for jardin in resultats %}
+                    <li><a href="{{url_for('jardin', id=jardin.id)}}">{{jardin.nom}}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    <p><a href="{{url_for('accueil')}}">Retour à l'accueil</a></p>
+{% endblock %}
