@@ -14,7 +14,7 @@ def ajouter_jardin():
     :rtype: page HTML
     """
 
-    # Si la méthode est POST, le formulaire est envoyé
+    # Si la méthode est POST, le formulaire a été envoyé
     if request.method == "POST":
         # Application de la méthode creation de la classe Jardins_remarquables
         entrees, infos = Jardins_remarquables.creation(
@@ -60,7 +60,7 @@ def editer_jardin(id):
     # Récupération de l'identifiant du jardin remarquable à modifier
     jardin_modification = Jardins_remarquables.query.get(id)
 
-    # Si la méthode est POST, le formulaire est envoyé
+    # Si la méthode est POST, le formulaire a été envoyé
     if request.method == "POST":
         # Application de la méthode edition de la classe Jardins_remarquables
         modification, infos = Jardins_remarquables.edition(
@@ -108,7 +108,7 @@ def supprimer_jardin(id):
     # Récupération de l'identifiant du jardin remarquable à supprimer
     jardin_supprime = Jardins_remarquables.query.get(id)
 
-    # Si la méthode est POST, le formulaire est envoyé
+    # Si la méthode est POST, le formulaire a été envoyé
     if request.method == "POST":
         # Application de la méthode suppression de la classe Jardins_remarquables
         statut = Jardins_remarquables.suppression(id=id)
