@@ -83,7 +83,7 @@ class Jardins_remarquables(db.Model):
         :type dailymotion: str
         :param tags: Tags du jardin remarquable
         :type tags: str
-        :return: Si succès, True et envoie des données ; si échec, False et liste d'erreurs
+        :returns: Si succès, True et envoie des données ; si échec, False et liste d'erreurs
         :rtype: bool
         """
 
@@ -226,7 +226,7 @@ class Jardins_remarquables(db.Model):
         :type dailymotion: str
         :param tags: Tags du jardin remarquable
         :type tags: str
-        :return: Si succès, True et envoie des données ; si échec, False et liste d'erreurs
+        :returns: Si succès, True et envoie des données ; si échec, False et liste d'erreurs
         :rtype: bool
         """
 

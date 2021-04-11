@@ -25,7 +25,7 @@ class Utilisateur(UserMixin, db.Model):
         :type nom: str
         :param motdepasse: Mot de passe de l'utilisateur (minimum 6 caractères)
         :type motdepasse: str
-        :return: Si succès, True et envoie des données ; si échec, False et liste d'erreurs
+        :returns: Si succès, True et envoie des données ; si échec, False et liste d'erreurs
         :rtype: bool
         """
 
