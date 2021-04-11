@@ -1,0 +1,86 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}
+    Ajouter un jardin remarquable à la base de données
+{% endblock %}
+
+{% block corps %}
+    <h1>Formulaire d'ajout d'un jardin remarquable</h1>
+    <p>Pour ajouter un jardin remarquable à la base de données, veuillez compléter les champs suivants :</p>
+
+    <form method="POST" action="{{url_for('ajouter_jardin')}}">
+        <div class="mb-3">
+            <label for="champs_nom" class="form-label">Nom du jardin remarquable</label>
+            <input type="text" name="nom" class="form-control" id="champs_nom">
+        </div>
+        <div class="mb-3">
+            <label for="champs_MRH" class="form-label">Identifiant Mérimée</label>
+            <input type="text" name="code_id" class="form-control" id="champs_MRH">
+        </div>
+        <div class="mb-3">
+            <label for="champs_année_labellisation" class="form-label">Année labellisation</label>
+            <input type="number" name="annee_labellisation" class="form-control" id="champs_année_labellisation">
+        </div>
+        <div class="mb-3">
+            <label for="champs_adresse" class="form-label">Adresse</label>
+            <input type="text" name="adresse" class="form-control" id="champs_adresse">
+        </div>
+        <div class="mb-3">
+            <label for="champs_ville" class="form-label">Ville</label>
+            <input type="text" name="ville" class="form-control" id="champs_ville">
+        </div>
+        <div class="mb-3">
+            <label for="champs_code_postal" class="form-label">Code postal</label>
+            <input type="number" name="code_postal" class="form-control" id="champs_code_postal">
+        </div>
+        <div class="mb-3">
+            <label for="champs_departement" class="form-label">Département</label>
+            <input type="text" name="departement" class="form-control" id="champs_departement">
+        </div>
+        <div class="mb-3">
+            <label for="champs_region" class="form-label">Région</label>
+            <input type="text" name="region" class="form-control" id="champs_region">
+        </div>
+        <div class="mb-3">
+            <label for="champs_latitude" class="form-label">Latitude</label>
+            <input type="float" name="latitude" class="form-control" id="champs_latitude" placeholder="Attention : le séparateur décimal à renseigner est un point.">
+        </div>
+        <div class="mb-3">
+            <label for="champs_longitude" class="form-label">Longitude</label>
+            <input type="float" name="longitude" class="form-control" id="champs_longitude" placeholder="Attention : le séparateur décimal à renseigner est un point.">
+        </div>
+        <div class="mb-3">
+            <label for="champs_descriptif" class="form-label">Descriptif</label>
+            <textarea name="descriptif" class="form-control" id="champs_descriptif"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="champs_site_web" class="form-label">Site web</label>
+            <input type="text" name="site_web" class="form-control" id="champs_site_web" placeholder="Ce champ n'est pas obligatoire.">
+        </div>
+        <div class="mb-3">
+            <label for="champs_facebook" class="form-label">Facebook</label>
+            <input type="text" name="facebook" class="form-control" id="champs_facebook" placeholder="Ce champ n'est pas obligatoire.">
+        </div>
+        <div class="mb-3">
+            <label for="champs_instagram" class="form-label">Instagram</label>
+            <input type="text" name="instagram" class="form-control" id="champs_instagram" placeholder="Ce champ n'est pas obligatoire.">
+        </div>
+        <div class="mb-3">
+            <label for="champs_twitter" class="form-label">Twitter</label>
+            <input type="text" name="twitter" class="form-control" id="champs_twitter" placeholder="Ce champ n'est pas obligatoire.">
+        </div>
+        <div class="mb-3">
+            <label for="champs_dailymotion" class="form-label">Dailymotion</label>
+            <input type="text" name="dailymotion" class="form-control" id="champs_dailymotion" placeholder="Ce champ n'est pas obligatoire.">
+        </div>
+        <div class="mb-3">
+            <label for="champs_tags" class="form-label">Tags/Mots clés/Références à d'autres labels</label>
+            <input type="text" name="tags" class="form-control" id="champs_tags" placeholder="Pour compléter ce champ, veuillez lire les instructions ci-dessous.">
+            <p>À titre d'exemple et afin de faciliter l'affichage des tags, il est possible d'insérer en respectant leur syntaxe les tags suivants : jardin-contemporain,
+                jardin-public, jardin-prive, jardin-inspiration-medievale, jardin-regulier, jardin-de-collection, monument-historique, parc-paysager, protection-site,
+                jardin-vivrier, musee-de-france, tourisme-et-handicap, architecture-contemporaine-remarquable, vpah et patrimoine-mondiale-de-lunesco. Vous pouvez
+                également insérer le mot clé de votre choix qui vous semble le plus pertinent ou bien laisser vide ce champ.</p>
+        </div>
+        <button type="submit" class="btn btn-primary">Sauvegarder l'ajout du jardin remarquable</button>
+    </form>
+{% endblock %}

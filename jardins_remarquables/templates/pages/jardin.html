@@ -1,0 +1,138 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}
+    {%if jardin %}|{{jardin.nom}} {% endif %}
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <style type="text/css">
+        #mapid {
+            height: 400px;
+        }
+    </style>
+{% endblock %}
+
+{% block corps %}
+    <body>
+        {% if jardin %}
+            <h1>{{jardin.nom}}</h1>
+            <p>Pour chaque jardin remarquable, une notice descriptive est affichée avec plusieurs catégories.
+                Le contenu des champs peut varié suivant les informations disponible dans la base de données.</p>
+
+            <dl>
+                <dt>Identifiant mérimée</dt><dd>{{jardin.code_id}}</dd>
+
+                <dt>Année de labellisation</dt><dd>{{jardin.annee_labellisation}}</dd>
+
+                <dt>Description</dt><dd>{{jardin.descriptif}}</dd>
+
+                <dt>Adresse</dt>
+                {% if jardin.adresse %}
+                    <dd>{{jardin.adresse}}</dd>
+                {% else %}
+                    <dd>Aucune indication sur l'adresse de ce jardin remarquable n'est précisée.</dd>
+                {% endif %}
+
+                <dt>Ville</dt><dd>{{jardin.ville}}</dd>
+
+                <dt>Code postal</dt><dd>{{jardin.code_postal}}</dd>
+
+                <dt>Département</dt><dd>{{jardin.departement}}</dd>
+
+                <dt>Site web</dt>
+                {% if jardin.site_web%}
+                    <dd><a href="{{jardin.site_web}}" target="_blank">{{jardin.site_web}}</a></dd>
+                {% else %}
+                    <dd>Ce jardin remarquable n'a pas de site web.</dd>
+                {% endif %}
+
+                {% if jardin.tags %}
+                <dt>Mots clés/tags/labels associés à ce jardin</dt>
+                    <dd>
+                        <ul>
+                            {% if "jardin-contemporain" in jardin.tags %}<li>jardin contemporain</li>{% endif %}
+                            {% if "jardin-public" in jardin.tags %}<li>jardin public</li>{% endif %}
+                            {% if "jardin-prive" in jardin.tags %}<li>jardin privé</li>{% endif %}
+                            {% if "jardin-inspiration-medievale" in jardin.tags %}<li>jardin d'inspiration médiévale</li>{% endif %}
+                            {% if "jardin-regulier" in jardin.tags %}<li>jardin régulier</li>{% endif %}
+                            {% if "jardin-de-collection" in jardin.tags %}<li>jardin de collection</li>{% endif %}
+                            {% if "jardin-vivrier" in jardin.tags %}<li>jardin vivrier</li>{% endif %}
+                            {% if "monument-historique" in jardin.tags %}<li>monument historique</li>{% endif %}
+                            {% if "parc-paysager" in jardin.tags %}<li>parc paysager</li>{% endif %}
+                            {% if "protection-site" in jardin.tags %}<li>protection du site</li>{% endif %}
+                            {% if "musee-de-france" in jardin.tags %}<li>Musée de France</li>{% endif %}
+                            {% if "tourisme-et-handicap" in jardin.tags %}<li>label tourisme et handicap</li>{% endif %}
+                            {% if "architecture-contemporaine-remarquable" in jardin.tags %}<li>label architecture contemporaine remarquable</li>{% endif %}
+                            {% if "vpah" in jardin.tags %}<li>Villes et Pays d'art et d'histoire</li>{% endif %}
+                            {% if "patrimoine-mondial-de-lunesco" in jardin.tags %}<li>Patrimoine mondial de l'Unesco</li>{% endif %}
+                            {% if "maison-des-illustres" in jardin.tags %}<li>maison des Illustres</li>{% endif %}
+                        </ul>
+                    </dd>
+                    {% if "jardin-contemporain" or "jardin-public" or "jardin-prive" or "jardin-inspiration-medievale" or
+                    "jardin-regulier" or "jardin-de-collection" or "jardin-vivrier" or "monument-historique" or "parc-paysager"
+                    or "protection-site" or "musee-de-france" or "tourisme-et-handicap" or "architecture-contemporaine-remarquable"
+                    or "vpah" or "patrimoine-mondial-de-lunesco" or "maison-des-illustres" not in jardin.tags %}
+                    <dd>Voici la liste des mots clés : {{jardin.tags}}</dd>
+                    {% endif %}
+                {% endif %}
+            </dl>
+
+            <dl>
+                <dt>Réseaux sociaux</dt>
+                {% if jardin.facebook or jardin.twitter or jardin.instagram or jardin.dailymotion %}
+                    {% if jardin.facebook %}
+                        <dt>Facebook</dt><dd><a href="{{jardin.facebook}}" target="_blank">{{jardin.facebook}}</a></dd>
+                    {% endif %}
+                    {% if jardin.twitter %}
+                        <dt>Twitter</dt><dd><a href="{{jardin.twitter}}" target="_blank">{{jardin.twitter}}</a></dd>
+                    {% endif %}
+                    {% if jardin.instagram %}
+                        <dt>Instagram</dt><dd><a href="{{jardin.instagram}}" target="_blank">{{jardin.instagram}}</a></dd>
+                    {% endif %}
+                    {% if jardin.dailymotion %}
+                        <dt>Dailymotion</dt><dd><a href="{{jardin.dailymotion}}" target="_blank">{{jardin.dailymotion}}</a></dd>
+                    {% endif %}
+                {% else %}
+                    <dd>Ce jardin remarquable ne possède pas de réseaux sociaux.</dd>
+                {% endif %}
+            </dl>
+
+            <dl>
+                <dt>Visualisation</dt>
+                    {% if jardin.latitude and jardin.longitude %}
+                        <div id="mapid"></div>
+                    {% else %}
+                        <dd>Les coordonnées géographiques de ce jardin ne sont pas disponibles.</dd>
+                    {% endif %}
+            </dl>
+
+        {% else %}
+            <p>La base de données est en cours de constitution.</p>
+        {% endif %}
+
+        <p><a href="{{url_for('accueil')}}">Retour à l'accueil</a>
+            {% if current_user.is_authenticated %}
+                <a href="{{url_for('editer_jardin', id=jardin.id)}}">Éditer ce jardin remarquable</a>
+                <a href="{{url_for('supprimer_jardin', id=jardin.id)}}">Supprimer ce jardin remarquable</a></p>
+            {% endif %}
+    </body>
+
+    <script type="text/javascript">
+        const map = L.map('mapid').setView([{{jardin.latitude}}, {{jardin.longitude}}], 9);
+
+        const mainLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+        const marker = L.marker([{{jardin.latitude}}, {{jardin.longitude}}]).addTo(map);
+
+        marker.bindPopup("<b>{{jardin.nom}}</b>").openPopup();
+
+        mainLayer.addTo(map);
+    </script>
+{% endblock %}
