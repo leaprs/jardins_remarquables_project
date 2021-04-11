@@ -1,0 +1,45 @@
+{% extends "conteneur.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+<style type="text/css">
+   #mapid {
+         height: 700px;
+   }
+</style>
+{% endblock %}
+
+{% block corps %}
+<body>
+    <div>
+        <h1>Visualisation des localisations de tous les jardins remarquables recensées dans la base de données</h1>
+        <p>Si un jardin remarquable vous intéresse, veuillez cliquer sur son nom pour être redirigé vers sa notice descriptive. Bonne exploration !</p>
+    </div>
+    <div id="mapid"></div>
+</body>
+
+<script type="text/javascript">
+
+    // Initialisation de la carte, il a été choisi de disposer les coordonnées 0,0 comme localisations de départ, afin que la carte ne soit pas centrée sur un jardin en particulier.
+    // Ainsi, cela laisse le choix au visiteur de parcourir la carte selon ses envies en ayant une vue générale dès l'affichage de la page.
+    var map = L.map('mapid').setView([0, 0], 3);
+
+    var mainLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+    {% for jardin in tous_jardins %}
+    {% if jardin.latitude and jardin.longitude %}
+    var marker = L.marker([{{jardin.latitude}}, {{jardin.longitude}}]).addTo(map);
+
+    marker.bindPopup("<b><a href='{{url_for('jardin', id=jardin.id)}}'>{{jardin.nom}}</a></b>").openPopup();
+    {% endif %}
+    {% endfor %}
+
+    mainLayer.addTo(map);
+</script>
+{% endblock %}
