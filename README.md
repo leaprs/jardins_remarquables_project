@@ -5,7 +5,7 @@
 Cette application a été développée par Léa Perissier dans le cadre de l'évaluation du module Python de l'École nationale des chartes. Elle permet l'exposition et la géolocalisation des jardins remarquables français d'après un jeu de données disponible sur [data.gouv](https://www.data.gouv.fr/fr/datasets/liste-des-jardins-remarquables/). 
 Afin de rendre les données davantage lisibles, de légères modifications ont été apportées à partir du set de données intial. Ces changements sont mesurables via le dossier "documentation" au sein duquel se trouvent les jeux de données à la base de l'application.
 
-Crédits : L'application a été développée à l'aide du framework Flask ainsi que la librairie JavaScript Leaflet pour les visualisations. Quant au design de l'application, le framework Bootstrap a été utilisé.
+Crédits : L'application a été développée à l'aide du framework Flask ainsi que de la librairie JavaScript Leaflet pour les visualisations. Quant au design de l'application, le framework Bootstrap a été utilisé.
 
 ## Description des fonctionnalités de l'application
 
