@@ -22,7 +22,7 @@ En s'inscrivant et en se connectant, le visiteur pourra bénéficier de fonction
 Veuillez suivre les étapes suivantes à exécuter dans un terminal (Linux) :
 
 1. Vérifier que la version de python installée est bien python3 : ``` python --version ```
-2. Clôner le dépôt git sur sa machine : ``` git clone https://github.com/leaprs/jardins_remarquables.git ``` 
+2. Clôner le dépôt git sur sa machine : ``` https://github.com/leaprs/jardins_remarquables_project.git ``` 
 3. Créer un environnement virtuel ``` env ``` : ``` virtualenv -p python3 env ```
 4. Sourcer l'environnement virtuel créé : ``` source env/bin/activate ```
 5. Se déplacer dans l'environnement virtuel : ``` cd env ```
