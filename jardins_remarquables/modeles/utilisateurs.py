@@ -10,6 +10,7 @@ class Utilisateur(UserMixin, db.Model):
     utilisateur_login = db.Column(db.String(45), nullable=False)
     utilisateur_email = db.Column(db.Text, nullable=False)
     utilisateur_mdp = db.Column(db.String(64), nullable=False)
+    # Ajout jointure avec la classe Participation
     participations = db.relationship("Participation", back_populates="utilisateur")
 
     @staticmethod
@@ -69,7 +70,7 @@ class Utilisateur(UserMixin, db.Model):
             return True, utilisateur
 
         except Exception as erreur:
-            # On renvoie erreur
+            # On renvoie la liste d'erreurs
             return False, [str(erreur)]
 
     # Définition de la fonction get_id nécessaire à l'utilisation de l'outil UserMixin
@@ -108,6 +109,7 @@ def trouver_utilisateur_via_id(identifiant):
     :rtype: int
     """
     return Utilisateur.query.get(int(identifiant))
+
 
 # Création de la table dans la base de données
 db.create_all()
