@@ -76,12 +76,7 @@
                                 {% if "maison-des-illustres" in jardin.tags %}<li>maison des Illustres</li>{% endif %}
                             </ul>
                         </dd>
-                        {% if "jardin-contemporain" and "jardin-public" and "jardin-prive" and "jardin-inspiration-medievale" and
-                        "jardin-regulier" and "jardin-de-collection" and "jardin-vivrier" and "monument-historique" and "parc-paysager"
-                        and "protection-site" and "musee-de-france" and "tourisme-et-handicap" and "architecture-contemporaine-remarquable"
-                        and "vpah" and "patrimoine-mondial-de-lunesco" and "maison-des-illustres" not in jardin.tags %}
-                            <dd>Voici la liste des mots clés : {{jardin.tags}}</dd>
-                        {% endif %}
+                        <dd>Voici la liste complète des mots clés : {{jardin.tags}}</dd>
                 {% endif %}
             </dl>
 
