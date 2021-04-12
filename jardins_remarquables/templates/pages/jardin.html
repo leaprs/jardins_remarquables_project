@@ -55,33 +55,33 @@
                 {% endif %}
 
                 {% if jardin.tags %}
-                <dt>Mots clés/tags/labels associés à ce jardin</dt>
-                    <dd>
-                        <ul>
-                            {% if "jardin-contemporain" in jardin.tags %}<li>jardin contemporain</li>{% endif %}
-                            {% if "jardin-public" in jardin.tags %}<li>jardin public</li>{% endif %}
-                            {% if "jardin-prive" in jardin.tags %}<li>jardin privé</li>{% endif %}
-                            {% if "jardin-inspiration-medievale" in jardin.tags %}<li>jardin d'inspiration médiévale</li>{% endif %}
-                            {% if "jardin-regulier" in jardin.tags %}<li>jardin régulier</li>{% endif %}
-                            {% if "jardin-de-collection" in jardin.tags %}<li>jardin de collection</li>{% endif %}
-                            {% if "jardin-vivrier" in jardin.tags %}<li>jardin vivrier</li>{% endif %}
-                            {% if "monument-historique" in jardin.tags %}<li>monument historique</li>{% endif %}
-                            {% if "parc-paysager" in jardin.tags %}<li>parc paysager</li>{% endif %}
-                            {% if "protection-site" in jardin.tags %}<li>protection du site</li>{% endif %}
-                            {% if "musee-de-france" in jardin.tags %}<li>Musée de France</li>{% endif %}
-                            {% if "tourisme-et-handicap" in jardin.tags %}<li>label tourisme et handicap</li>{% endif %}
-                            {% if "architecture-contemporaine-remarquable" in jardin.tags %}<li>label architecture contemporaine remarquable</li>{% endif %}
-                            {% if "vpah" in jardin.tags %}<li>Villes et Pays d'art et d'histoire</li>{% endif %}
-                            {% if "patrimoine-mondial-de-lunesco" in jardin.tags %}<li>Patrimoine mondial de l'Unesco</li>{% endif %}
-                            {% if "maison-des-illustres" in jardin.tags %}<li>maison des Illustres</li>{% endif %}
-                        </ul>
-                    </dd>
-                    {% if "jardin-contemporain" and "jardin-public" and "jardin-prive" and "jardin-inspiration-medievale" and
-                    "jardin-regulier" and "jardin-de-collection" and "jardin-vivrier" and "monument-historique" and "parc-paysager"
-                    and "protection-site" and "musee-de-france" and "tourisme-et-handicap" and "architecture-contemporaine-remarquable"
-                    and "vpah" and "patrimoine-mondial-de-lunesco" and "maison-des-illustres" not in jardin.tags %}
-                    <dd>Voici la liste des mots clés : {{jardin.tags}}</dd>
-                    {% endif %}
+                    <dt>Mots clés/tags/labels associés à ce jardin</dt>
+                        <dd>
+                            <ul>
+                                {% if "jardin-contemporain" in jardin.tags %}<li>jardin contemporain</li>{% endif %}
+                                {% if "jardin-public" in jardin.tags %}<li>jardin public</li>{% endif %}
+                                {% if "jardin-prive" in jardin.tags %}<li>jardin privé</li>{% endif %}
+                                {% if "jardin-inspiration-medievale" in jardin.tags %}<li>jardin d'inspiration médiévale</li>{% endif %}
+                                {% if "jardin-regulier" in jardin.tags %}<li>jardin régulier</li>{% endif %}
+                                {% if "jardin-de-collection" in jardin.tags %}<li>jardin de collection</li>{% endif %}
+                                {% if "jardin-vivrier" in jardin.tags %}<li>jardin vivrier</li>{% endif %}
+                                {% if "monument-historique" in jardin.tags %}<li>monument historique</li>{% endif %}
+                                {% if "parc-paysager" in jardin.tags %}<li>parc paysager</li>{% endif %}
+                                {% if "protection-site" in jardin.tags %}<li>protection du site</li>{% endif %}
+                                {% if "musee-de-france" in jardin.tags %}<li>Musée de France</li>{% endif %}
+                                {% if "tourisme-et-handicap" in jardin.tags %}<li>label tourisme et handicap</li>{% endif %}
+                                {% if "architecture-contemporaine-remarquable" in jardin.tags %}<li>label architecture contemporaine remarquable</li>{% endif %}
+                                {% if "vpah" in jardin.tags %}<li>Villes et Pays d'art et d'histoire</li>{% endif %}
+                                {% if "patrimoine-mondial-de-lunesco" in jardin.tags %}<li>Patrimoine mondial de l'Unesco</li>{% endif %}
+                                {% if "maison-des-illustres" in jardin.tags %}<li>maison des Illustres</li>{% endif %}
+                            </ul>
+                        </dd>
+                        {% if "jardin-contemporain" and "jardin-public" and "jardin-prive" and "jardin-inspiration-medievale" and
+                        "jardin-regulier" and "jardin-de-collection" and "jardin-vivrier" and "monument-historique" and "parc-paysager"
+                        and "protection-site" and "musee-de-france" and "tourisme-et-handicap" and "architecture-contemporaine-remarquable"
+                        and "vpah" and "patrimoine-mondial-de-lunesco" and "maison-des-illustres" not in jardin.tags %}
+                            <dd>Voici la liste des mots clés : {{jardin.tags}}</dd>
+                        {% endif %}
                 {% endif %}
             </dl>
 
