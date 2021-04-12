@@ -124,7 +124,6 @@ class Jardins_remarquables(db.Model):
         if not longitude:
             erreurs.append("La longitude doit être renseignée.")
 
-
         # Vérification que le nom et l'identifiant Mérimée fournis pour le nouveau jardin ne soient pas déjà inscrits dans la base de données
         unique = Jardins_remarquables.query.filter(
             db.or_(Jardins_remarquables.nom == nom, Jardins_remarquables.code_id == code_id)
