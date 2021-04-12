@@ -32,6 +32,7 @@ class Utilisateur(UserMixin, db.Model):
         # Définition d'une liste vide où viendront s'ajouter les potentielles erreurs
         erreurs = []
 
+        # Critères pour l'insertion
         if not login:
             erreurs.append("Le champ réservé au login est vide")
         if not email:
