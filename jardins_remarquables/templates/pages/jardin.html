@@ -23,7 +23,7 @@
         {% if jardin %}
             <h1>{{jardin.nom}}</h1>
             <p>Pour chaque jardin remarquable, une notice descriptive est affichée avec plusieurs catégories.
-                Le contenu des champs peut varié suivant les informations disponible dans la base de données.</p>
+                Le contenu des champs peut être vide suivant les informations disponibles dans la base de données.</p>
 
             <dl>
                 <dt>Identifiant mérimée</dt><dd>{{jardin.code_id}}</dd>
@@ -76,10 +76,10 @@
                             {% if "maison-des-illustres" in jardin.tags %}<li>maison des Illustres</li>{% endif %}
                         </ul>
                     </dd>
-                    {% if "jardin-contemporain" or "jardin-public" or "jardin-prive" or "jardin-inspiration-medievale" or
-                    "jardin-regulier" or "jardin-de-collection" or "jardin-vivrier" or "monument-historique" or "parc-paysager"
-                    or "protection-site" or "musee-de-france" or "tourisme-et-handicap" or "architecture-contemporaine-remarquable"
-                    or "vpah" or "patrimoine-mondial-de-lunesco" or "maison-des-illustres" not in jardin.tags %}
+                    {% if "jardin-contemporain" and "jardin-public" and "jardin-prive" and "jardin-inspiration-medievale" and
+                    "jardin-regulier" and "jardin-de-collection" and "jardin-vivrier" and "monument-historique" and "parc-paysager"
+                    and "protection-site" and "musee-de-france" and "tourisme-et-handicap" and "architecture-contemporaine-remarquable"
+                    and "vpah" and "patrimoine-mondial-de-lunesco" and "maison-des-illustres" not in jardin.tags %}
                     <dd>Voici la liste des mots clés : {{jardin.tags}}</dd>
                     {% endif %}
                 {% endif %}
