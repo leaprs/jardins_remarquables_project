@@ -7,6 +7,7 @@ import os
 # Import local
 from .constantes import SECRET_KEY
 
+
 # Définition des chemins grâce au package os
 chemin_actuel = os.path.dirname(os.path.abspath(__file__))
 templates = os.path.join(chemin_actuel, "templates")
