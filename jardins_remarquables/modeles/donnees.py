@@ -37,7 +37,7 @@ class Jardins_remarquables(db.Model):
     instagram = db.Column(db.Text)
     dailymotion = db.Column(db.Text)
     tags = db.Column(db.Text)
-    # Ajout jointure avec la classe Particpation
+    # Ajout jointure avec la classe Participation
     participations = db.relationship("Participation", back_populates="jardin")
 
 
